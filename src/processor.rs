@@ -3,6 +3,7 @@ use solana_program::{
     entrypoint::ProgramResult,
     msg,
     program::{invoke},
+    pubkey::Pubkey,
     program_error::ProgramError,
 };
 
@@ -11,6 +12,7 @@ use crate::{instruction::CryptexInstruction};
 pub struct Processor;
 impl Processor {
     pub fn process(
+        program_id: &Pubkey,
         accounts: &[AccountInfo],
         instruction_data: &[u8],
     ) -> ProgramResult {
@@ -19,16 +21,17 @@ impl Processor {
         match instruction {
             CryptexInstruction::Stake { amount } => {
                 msg!("Instruction: InitCryptex");
-                Self::process_stake(accounts, amount)
+                Self::process_stake(program_id, accounts, amount)
             }
             CryptexInstruction::Mint { amount } => {
                 msg!("Instruction: Exchange");
-                Self::process_mint(accounts, amount)
+                Self::process_mint(program_id, accounts, amount)
             }
         }
     }
 
     fn process_stake(
+        _program_id: &Pubkey,
         accounts: &[AccountInfo],
         amount: u64
     ) -> ProgramResult {
@@ -65,6 +68,7 @@ impl Processor {
     }
 
     fn process_mint(
+        _program_id: &Pubkey,
         accounts: &[AccountInfo],
         amount: u64
     ) -> ProgramResult {
