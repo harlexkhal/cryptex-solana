@@ -32,10 +32,6 @@ const start = async () => {
       { pubkey: new PublicKey('ACqqDBXdFhgatszRESwmdkfgLH7coJm7SxaTuiEhEQ9y'), isSigner: false, isWritable: true },
       { pubkey: usdcAcctUser, isSigner: false, isWritable: true },
       { pubkey: keypairUser.publicKey, isSigner: true, isWritable: false },
-    
-      { pubkey: cryptex_usdcAcctUser, isSigner: false, isWritable: true },
-      { pubkey: new PublicKey('6zdV6NKr7JnnyFxwGyBjgD3N8sJrR9rM5nmqUw7msrS'), isSigner: false, isWritable:true },
-      { pubkey: keypairUser.publicKey, isSigner: true, isWritable: false },
     ],
   });
 
